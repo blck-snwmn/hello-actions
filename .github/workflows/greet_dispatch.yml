@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Set the value
         id: set_name
-        run: echo "::set-output msg=`Hello ${{ github.event.inputs.name }}!\n- in ${{ github.event.inputs.email }}!\n- in ${{ github.event.inputs.location }}!`"
+        run: echo "::set-output name=msg::`Hello ${{ github.event.inputs.name }}!\n- in ${{ github.event.inputs.email }}!\n- in ${{ github.event.inputs.location }}!`"
       - name: Use the value
         run: echo "${{ steps.set_name.outputs.msg }}"
       - name: Send to slack channel
