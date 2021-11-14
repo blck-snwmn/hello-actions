@@ -5,7 +5,10 @@ on:
       name:
         description: "your name"
         required: true
-      home:
+      email:
+        description: "email"
+        required: false
+      location:
         description: "location"
         required: false
 
@@ -15,4 +18,5 @@ jobs:
     steps:
       - run: |
           echo "Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.home }}!"
+          echo "- in ${{ github.event.inputs.email }}!"
+          echo "- in ${{ github.event.inputs.location }}!"
