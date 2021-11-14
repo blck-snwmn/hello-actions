@@ -3,13 +3,11 @@ on:
   workflow_dispatch:
     inputs:
       name:
-        description: "Person to greet"
+        description: "your name"
         required: true
-        default: "Mona the Octocat"
       home:
         description: "location"
         required: false
-        default: "The Octoverse"
 
 jobs:
   say_hello:
