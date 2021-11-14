@@ -16,10 +16,11 @@ jobs:
   say_hello:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          echo "Hello ${{ github.event.inputs.name }}!"
-          echo "- in ${{ github.event.inputs.email }}!"
-          echo "- in ${{ github.event.inputs.location }}!"
+      - name: Set the value
+        id: set_name
+        run: echo "::set-output msg=Hello ${{ github.event.inputs.name }}!\n- in ${{ github.event.inputs.email }}!\n- in ${{ github.event.inputs.location }}!"
+      - name: Use the value
+        run: echo "${{ steps.set_name.outputs.msg }}"
       - name: Send to slack channel
         run: |
-          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK }}
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"${{ steps.set_name.outputs.msg }}"}' ${{ secrets.SLACK }}
