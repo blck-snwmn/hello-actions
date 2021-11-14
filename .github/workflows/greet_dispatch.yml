@@ -20,3 +20,6 @@ jobs:
           echo "Hello ${{ github.event.inputs.name }}!"
           echo "- in ${{ github.event.inputs.email }}!"
           echo "- in ${{ github.event.inputs.location }}!"
+      - name: Send to slack channel
+        run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Hello, World!"}' ${{ secrets.SLACK }}
