@@ -28,10 +28,8 @@ jobs:
             #### Validation ok\n
             #### Dryrun \n
             <details><summary>Show Plan</summary>
-            \`\`\`result\n
               aaa
               bbb
-            \`\`\`
             </details>
             *Pushed by: @${{ github.actor }}, Action: \`${{ github.event_name }}\`*\n`;
             await core.summary
