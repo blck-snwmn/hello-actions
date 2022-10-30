@@ -1,4 +1,4 @@
-name: Summary 
+name: Summary for GitHub
   
 on:  
   pull_request:  
